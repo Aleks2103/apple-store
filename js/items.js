@@ -1304,8 +1304,6 @@ for (let key in items) {
 }
 document.getElementById('coll').innerHTML = out
 
-
-
 let liker = function () {
     let likes = document.getElementById('like');
     likes.addEventListener('click', function() {
@@ -1316,8 +1314,6 @@ liker()
 
 let filters = Array.from(document.getElementsByClassName("filter"));
 let filterButtons = Array.from(document.getElementsByClassName("icon-arrow_left"));
-
-
 
 // modalWindow
 let allCard = Array.from(document.getElementsByClassName('card'));
@@ -1357,7 +1353,6 @@ allCard.forEach(card => {card.addEventListener('click', event => {
     </div>
     </div>`;
 document.getElementsByTagName('body')[0].appendChild(modalBaner);
-    // document.getElementsByClassName("modalBtn")[0].addEventListener("click", addToCart);
 });
 });
 
@@ -1366,8 +1361,6 @@ document.addEventListener("click", evt => {
         modalBaner.remove();
     }
 })
-
-
 
 //filter open
 filters.forEach((filter) => {
@@ -1395,10 +1388,6 @@ filters.forEach((filter) => {
   );
 });
 
-
-
-
-// filterSort
 let colorFilter = [];
 let memoryFilter = [];
 let osFilter = [];
@@ -1588,35 +1577,3 @@ function filterFunction(event) {
   });
   }}
 let btnPrimary = document.getElementsByClassName('btn-primary')
-
-
-
-
-
-
-// function creatAndAddCardToBascet (event){
-//     let allButtons = Array.from(document.querySelectorAll(".btn"));
-//     let targetBtn = items.find(el => el.id == event.target.parentElement.id)
-//     if(allButtons.id == targetBtn.id){
-//     let bascetProdCard = document.createElement('div')
-//     bascetProdCard.setAttribute('class', 'bascet-prod-card')
-//     // bascetProdCard.setAttribute('id', '${targetBtm.id}')
-//     bascetProdCard.innerHTML = `
-//     <img src="img/items/imac.png" alt="">
-//     <div class="body-bas-cart">
-//         <h5>Apple Air Pods Pro</h5>
-//         <div class="b-prise">$999,87</div>
-//     </div>
-//     <button class="arrow-left"><</button>
-//     <h5>0</h5>
-//     <button class="arrow-right">></button>
-//     <button class="close-card">X</button>
-//     `
-//     document.getElementsByClassName('add-card')[0].appendChild(bascetProdCard)
-//     }
-// }
-
-// allButtons.forEach(button =>{
-//     button.addEventListener("click", creatAndAddCardToBascet);
-    
-// });
