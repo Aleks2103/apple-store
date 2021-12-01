@@ -24,7 +24,6 @@ let printNumItems = () => {
     let prodLenth = document.getElementsByClassName('add-card')[0].children.length;
     numItems.textContent = prodLenth;
     numAllItens.textContent = prodLenth;
-    // productsListLength > 0 ? cart.classList.add('active') : cart.classList.remove('active');
 };
 const printFullPrice = () => {
 	fullPrice.textContent = `${normalPrice(price)} $`;
@@ -38,28 +37,14 @@ const generateCart = (img, title, price, id) => {
          <div class="b-prise">${normalPrice(price)} $</div>
      </div>
      <button class="arrow-left">-</button>
-     <h5 class='countItemInCard'>0</h5>
+     <h5 class='countItemInCard'>1</h5>
      <button class="arrow-right">+</button>
      <button class="close-card">X</button>
     </div> 
     `;
 };
-
-// const deleteProducts = (productParent) => {
-// 	let id = productParent.querySelector('.bascet-prod-card').id;
-// 	document.querySelector(`.bascet-prod-card[data-id="${id}"]`).querySelector('.close-card');
-	
-// 	let currentPrice = parseInt(priceWithoutSpaces(productParent.querySelector('.b-prise').textContent));
-// 	minusFullPrice(currentPrice);
-// 	printFullPrice();
-// 	productParent.remove();
-
-// 	printNumItems();
-// };
-
 allBtnPrimary.forEach(el => {
 	el.closest('.card').setAttribute('data-id', randomId());
-
 	el.addEventListener('click', (e) => {
 		e.stopPropagation()
 		let self = e.currentTarget;
@@ -77,8 +62,13 @@ allBtnPrimary.forEach(el => {
 		let close = document.querySelector('.close-card');
 		close.addEventListener('click', (event) => {
 		if(event.target.classList.contains('close-card')) {
-        event.target.parentElement.remove()
+        	event.target.parentElement.remove();
+				if(document.getElementsByClassName('add-card')[0].children.length === 0){
+					document.querySelector('.numAllItems').textContent = '0';
+					document.querySelector('.fullPrice').textContent = '0';
+				}
     		};
+			numItems.textContent = document.getElementsByClassName('add-card')[0].children.length;
 		})
 		let originalPrise = priceWithoutSpaces(document.querySelector('.b-prise').textContent)
 		let arrowLeft = document.querySelector('.arrow-left');
@@ -109,15 +99,9 @@ allBtnPrimary.forEach(el => {
 			document.querySelector('.fullPrice').textContent = normalPrice(fullPr) + '$'
 		})
 		printFullPrice();
-		
-		
 	});
 });
-
 const hiddenBascet = document.querySelector('.bascet');
 hiddenBascet.addEventListener('click', (e) =>{
     document.getElementsByClassName('cardBascet')[0].classList.toggle('hidden')
 })
-
-
-
